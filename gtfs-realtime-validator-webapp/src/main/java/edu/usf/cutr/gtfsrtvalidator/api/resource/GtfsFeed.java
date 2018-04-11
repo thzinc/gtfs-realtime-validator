@@ -298,6 +298,7 @@ public class GtfsFeed {
             reader.setEntityStore(store);
             reader.run();
         } catch (Exception ex) {
+            _log.warn("Could not save GTFS feed", ex);
             return null;
         }
         return store;

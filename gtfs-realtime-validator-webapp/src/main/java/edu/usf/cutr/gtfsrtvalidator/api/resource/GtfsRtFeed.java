@@ -524,6 +524,7 @@ public class GtfsRtFeed {
             URL url = FeedURI.toURL();
             feed = GtfsRealtime.FeedMessage.parseFrom(url.openStream());
         } catch (URISyntaxException | IllegalArgumentException | IOException e) {
+            _log.warn("%s is an invalid GTFS-realtime feed", FeedURL, e);
             return INVALID_FEED;
         }
         if (feed.hasHeader()) {
